@@ -148,7 +148,12 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: false
+    enabled: true
+    options:
+      title: Pages
+      folderDefaultState: open
+      folderClickBehavior: collapse
+      useSavedState: true
     layout:
       position: left
       priority: 50
@@ -240,7 +245,7 @@ plugins:
     options: {}
     order: 50
   - source: "@quartz-community/note-properties"
-    enabled: true
+    enabled: false
     options:
       includeAll: false
       includedProperties:

@@ -1,8 +1,9 @@
 ---
-title: 홈
-description: 김재언 연구자 홈페이지
+title: Home
+description: Jaeeon Kim's research profile
+unlisted: true
 ---
 
-<script>window.location.replace("ko/index.html");</script>
+<script>window.location.replace("en/index.html");</script>
 
-[한국어 홈페이지로 이동](ko/index.html)
+[Continue to the English homepage](en/index.html)
