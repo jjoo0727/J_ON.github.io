@@ -5,7 +5,9 @@ description: Research projects and software
 
 # Projects
 
-[[en/index|Home]] · [[ko/Projects|한국어 프로젝트]]
+<nav aria-label="Language"><a href="projects.html" lang="en" aria-current="page" style="display:inline-block;padding:0.35em 0.9em;margin-right:0.4em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">EN</a><a href="../ko/projects.html" lang="ko" style="display:inline-block;padding:0.35em 0.9em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a></nav>
+
+[[en/index|Home]]
 
 ## [Project or model name]
 

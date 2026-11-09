@@ -5,7 +5,9 @@ description: 김재언 이력서
 
 # 이력서
 
-[[ko/index|홈]] · [[en/CV|English CV]]
+<nav aria-label="Language"><a href="../en/cv.html" lang="en" style="display:inline-block;padding:0.35em 0.9em;margin-right:0.4em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">EN</a><a href="cv.html" lang="ko" aria-current="page" style="display:inline-block;padding:0.35em 0.9em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a></nav>
+
+[[ko/index|홈]]
 
 **김재언** · [현재 직위] · [이메일]
 

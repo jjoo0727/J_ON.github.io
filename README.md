@@ -1,4 +1,4 @@
-# JaeEon Kim — Research Profile
+# Jaeeon Kim — Research Profile
 
 Bilingual research profile written in Obsidian Markdown and generated with Quartz.
 

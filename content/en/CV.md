@@ -1,13 +1,15 @@
 ---
 title: CV
-description: Curriculum vitae of JaeEon Kim
+description: Curriculum vitae of Jaeeon Kim
 ---
 
 # Curriculum Vitae
 
-[[en/index|Home]] · [[ko/CV|한국어 CV]]
+<nav aria-label="Language"><a href="cv.html" lang="en" aria-current="page" style="display:inline-block;padding:0.35em 0.9em;margin-right:0.4em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">EN</a><a href="../ko/cv.html" lang="ko" style="display:inline-block;padding:0.35em 0.9em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a></nav>
 
-**JaeEon Kim** · [Current position] · [Email]
+[[en/index|Home]]
+
+**Jaeeon Kim** · [Current position] · [Email]
 
 ## Education
 
