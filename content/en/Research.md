@@ -5,7 +5,7 @@ description: Research themes in atmospheric science and AI
 
 # Research
 
-<nav aria-label="Language"><a href="research.html" lang="en" aria-current="page" style="display:inline-block;padding:0.35em 0.9em;margin-right:0.4em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">EN</a><a href="../ko/research.html" lang="ko" style="display:inline-block;padding:0.35em 0.9em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a></nav>
+<script src="../static/language-switch.js" defer></script>
 
 [[en/index|Home]]
 

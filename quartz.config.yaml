@@ -21,25 +21,25 @@ configuration:
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#faf8fc"
+        lightgray: "#e6e0ed"
+        gray: "#a397b0"
+        darkgray: "#62566f"
+        dark: "#443852"
+        secondary: "#725b91"
+        tertiary: "#9c86b9"
+        highlight: rgba(127, 99, 163, 0.16)
+        textHighlight: "#cdb7f288"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#19161e"
+        lightgray: "#393342"
+        gray: "#82758e"
+        darkgray: "#d2c9dc"
+        dark: "#eee8f4"
+        secondary: "#c0a7e7"
+        tertiary: "#a890ca"
+        highlight: rgba(183, 151, 225, 0.18)
+        textHighlight: "#cdb7f288"
   links:
     markdownLinkResolution: shortest
   contentIndex:
@@ -148,7 +148,7 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50

@@ -3,10 +3,7 @@ title: 홈
 description: 대기과학과 AI 기반 기상예측 연구자 소개
 ---
 
-<nav aria-label="Language">
-<a href="../en/index.html" lang="en" style="display:inline-block;padding:0.35em 0.9em;margin-right:0.4em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">EN</a>
-<a href="index.html" lang="ko" aria-current="page" style="display:inline-block;padding:0.35em 0.9em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a>
-</nav>
+<script src="../static/language-switch.js" defer></script>
 
 # 김재언
 

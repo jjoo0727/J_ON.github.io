@@ -1,3 +1,59 @@
-@use "./variables.scss" as *;
+// Compact language switch in the left toolbar.
+.language-switch {
+  display: inline-flex;
+  min-width: 2.2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--secondary);
+  font-family: var(--bodyFont);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
 
-// put your custom CSS here!
+.language-switch:hover {
+  background: var(--highlight);
+  color: var(--dark);
+}
+
+.language-switch:focus-visible {
+  outline: 2px solid var(--tertiary);
+  outline-offset: 2px;
+}
+
+// Keep the home photo visible around a light text panel for readable contrast.
+body[data-slug="en/index"],
+body[data-slug="ko/index"] {
+  background-image:
+    linear-gradient(180deg, rgba(248, 246, 251, 0.34), rgba(248, 246, 251, 0.62)),
+    url("./static/Beach_Sky.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body[data-slug="en/index"] .center > article,
+body[data-slug="ko/index"] .center > article {
+  padding: 1.5rem;
+  border: 1px solid rgba(114, 91, 145, 0.14);
+  border-radius: 1.1rem;
+  background: rgba(250, 248, 252, 0.88);
+  box-shadow: 0 16px 48px rgba(48, 36, 63, 0.12);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 800px) {
+  body[data-slug="en/index"],
+  body[data-slug="ko/index"] {
+    background-attachment: scroll;
+  }
+
+  body[data-slug="en/index"] .center > article,
+  body[data-slug="ko/index"] .center > article {
+    padding: 1.1rem;
+  }
+}

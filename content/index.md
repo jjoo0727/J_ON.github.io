@@ -1,13 +1,8 @@
 ---
-title: Jaeeon Kim | Language
-description: Choose a language for Jaeeon Kim's research profile
+title: 홈
+description: 김재언 연구자 홈페이지
 ---
 
-# Jaeeon Kim
+<script>window.location.replace("ko/index.html");</script>
 
-### Atmospheric Science · AI for Weather Prediction
-
-<nav aria-label="Language">
-<a href="en/index.html" lang="en" style="display:inline-block;padding:0.4em 1em;margin-right:0.5em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">English</a>
-<a href="ko/index.html" lang="ko" style="display:inline-block;padding:0.4em 1em;border:1px solid var(--secondary);border-radius:999px;text-decoration:none;font-weight:600">한국어</a>
-</nav>
+[한국어 홈페이지로 이동](ko/index.html)
