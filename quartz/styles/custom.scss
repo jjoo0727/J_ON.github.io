@@ -1,84 +1,4 @@
-// Use the original photograph once, as the page background.
-body[data-slug="en/index"],
-body[data-slug="ko/index"] {
-  background: url("./static/Beach_Sky2.jpg") center / cover fixed no-repeat !important;
-  --secondary: #347688;
-  --tertiary: #5a9bab;
-  --highlight: rgba(52, 118, 136, 0.16);
-}
-
-body[data-slug="en/index"] #quartz-root,
-body[data-slug="ko/index"] #quartz-root,
-body[data-slug="en/index"] #quartz-body,
-body[data-slug="ko/index"] #quartz-body,
-body[data-slug="en/index"] .left.sidebar,
-body[data-slug="ko/index"] .left.sidebar,
-body[data-slug="en/index"] .center,
-body[data-slug="ko/index"] .center,
-body[data-slug="en/index"] .right.sidebar,
-body[data-slug="ko/index"] .right.sidebar {
-  background: transparent !important;
-}
-
-// Keep the left navigation over the photo; cards belong around the article
-// and its outline only, and should stop where their content stops.
-body[data-slug="en/index"] .left.sidebar,
-body[data-slug="ko/index"] .left.sidebar {
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-body[data-slug="en/index"] .center > .page-header,
-body[data-slug="ko/index"] .center > .page-header,
-body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing,
-body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing {
-  display: none !important;
-}
-
-body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
-body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
-body[data-slug="en/index"] .right.sidebar .toc,
-body[data-slug="ko/index"] .right.sidebar .toc {
-  box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.86) !important;
-  box-shadow: 0 12px 36px rgba(32, 58, 68, 0.12);
-}
-
-body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
-body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article {
-  margin: 0;
-  padding: 1.5rem;
-}
-
-body[data-slug="en/index"] .right.sidebar,
-body[data-slug="ko/index"] .right.sidebar {
-  align-self: start;
-  height: max-content;
-}
-
-body[data-slug="en/index"] .right.sidebar .toc,
-body[data-slug="ko/index"] .right.sidebar .toc {
-  width: 100%;
-  margin-top: 0;
-  padding: 1.1rem 1.25rem;
-}
-
-// The landing page uses its own heading. Keep the outline, and remove the
-// generic graph and backlinks blocks from the home view.
-body[data-slug="en/index"] .right .graph,
-body[data-slug="ko/index"] .right .graph,
-body[data-slug="en/index"] .right .backlinks,
-body[data-slug="ko/index"] .right .backlinks {
-  display: none !important;
-}
-
-body[data-slug="en/index"] .center article h1:first-of-type,
-body[data-slug="ko/index"] .center article h1:first-of-type {
-  margin-top: 0;
-}
-
+// Keep the language control compact in Quartz's left toolbar.
 .language-switch {
   display: inline-flex;
   min-width: 2.2rem;
@@ -105,14 +25,9 @@ body[data-slug="ko/index"] .center article h1:first-of-type {
   outline-offset: 2px;
 }
 
-@media (max-width: 800px) {
-  body[data-slug="en/index"],
-  body[data-slug="ko/index"] {
-    background-attachment: scroll !important;
-  }
-
-  body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
-  body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article {
-    padding: 1.1rem;
-  }
+// This index also lists the locale's child notes in Quartz. The Explorer
+// already provides that navigation, so avoid repeating the full list below.
+body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing,
+body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing {
+  display: none;
 }
