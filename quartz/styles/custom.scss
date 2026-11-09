@@ -1,4 +1,4 @@
-// A single, fixed photo gives the page one continuous background.
+// Use the original photograph once, as the page background.
 body[data-slug="en/index"],
 body[data-slug="ko/index"] {
   background: url("./static/Beach_Sky2.jpg") center / cover fixed no-repeat !important;
@@ -20,38 +20,53 @@ body[data-slug="ko/index"] .right.sidebar {
   background: transparent !important;
 }
 
-// Keep the three columns visually related while letting the original photo
-// show through the same plain white translucency in every panel.
+// Keep the left navigation over the photo; cards belong around the article
+// and its outline only, and should stop where their content stops.
 body[data-slug="en/index"] .left.sidebar,
-body[data-slug="ko/index"] .left.sidebar,
-body[data-slug="en/index"] .center > article,
-body[data-slug="ko/index"] .center > article,
-body[data-slug="en/index"] .right.sidebar {
-  border: 1px solid rgba(255, 255, 255, 0.58);
+body[data-slug="ko/index"] .left.sidebar {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body[data-slug="en/index"] .center > .page-header,
+body[data-slug="ko/index"] .center > .page-header,
+body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing,
+body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > .page-listing {
+  display: none !important;
+}
+
+body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
+body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
+body[data-slug="en/index"] .right.sidebar .toc,
+body[data-slug="ko/index"] .right.sidebar .toc {
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.84) !important;
+  background: rgba(255, 255, 255, 0.86) !important;
   box-shadow: 0 12px 36px rgba(32, 58, 68, 0.12);
 }
 
-body[data-slug="ko/index"] .right.sidebar {
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.84) !important;
-  box-shadow: 0 12px 36px rgba(32, 58, 68, 0.12);
-}
-
-body[data-slug="en/index"] .center > article,
-body[data-slug="ko/index"] .center > article {
-  margin-top: 0;
+body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
+body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article {
+  margin: 0;
   padding: 1.5rem;
 }
 
-// The landing page starts with its own name heading. Remove Quartz's extra
-// page title/date and graph panels so the main heading and outline start high.
-body[data-slug="en/index"] .center .article-title,
-body[data-slug="ko/index"] .center .article-title,
-body[data-slug="en/index"] .center .content-meta,
-body[data-slug="ko/index"] .center .content-meta,
+body[data-slug="en/index"] .right.sidebar,
+body[data-slug="ko/index"] .right.sidebar {
+  align-self: start;
+  height: max-content;
+}
+
+body[data-slug="en/index"] .right.sidebar .toc,
+body[data-slug="ko/index"] .right.sidebar .toc {
+  width: 100%;
+  margin-top: 0;
+  padding: 1.1rem 1.25rem;
+}
+
+// The landing page uses its own heading. Keep the outline, and remove the
+// generic graph and backlinks blocks from the home view.
 body[data-slug="en/index"] .right .graph,
 body[data-slug="ko/index"] .right .graph,
 body[data-slug="en/index"] .right .backlinks,
@@ -59,8 +74,8 @@ body[data-slug="ko/index"] .right .backlinks {
   display: none !important;
 }
 
-body[data-slug="en/index"] .center > article > h1:first-of-type,
-body[data-slug="ko/index"] .center > article > h1:first-of-type {
+body[data-slug="en/index"] .center article h1:first-of-type,
+body[data-slug="ko/index"] .center article h1:first-of-type {
   margin-top: 0;
 }
 
@@ -96,8 +111,8 @@ body[data-slug="ko/index"] .center > article > h1:first-of-type {
     background-attachment: scroll !important;
   }
 
-  body[data-slug="en/index"] .center > article,
-  body[data-slug="ko/index"] .center > article {
+  body[data-slug="en/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article,
+  body[data-slug="ko/index"] .center > .popover-hint[data-quartz-plugin="folder-page"] > article {
     padding: 1.1rem;
   }
 }
