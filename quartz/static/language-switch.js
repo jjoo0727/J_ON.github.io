@@ -27,21 +27,54 @@
         const tree = explorer.querySelector(".explorer-ul")
         if (!tree) return
 
+        let homeRow = tree.querySelector(":scope > li [data-language-home='true']")?.closest("li")
+        if (!homeRow) {
+          homeRow = document.createElement("li")
+          const homeLink = document.createElement("a")
+          homeLink.className = "nav-file-title tree-item-self"
+          homeLink.dataset.languageHome = "true"
+          homeRow.append(homeLink)
+        }
+
+        const homeLink = homeRow.querySelector("[data-language-home='true']")
+        if (homeLink) {
+          homeLink.href = `${basePath}/${language}/index.html`
+          if (homeLink.textContent !== homeTitle) homeLink.textContent = homeTitle
+          homeLink.lang = language
+          homeLink.setAttribute("aria-label", homeTitle)
+          homeLink.setAttribute("aria-current", page === "index" ? "page" : "false")
+        }
+        const rootEnd = tree.querySelector(":scope > li.overflow-end")
+        if (rootEnd) tree.insertBefore(homeRow, rootEnd)
+
         tree.querySelectorAll(".folder-container[data-folderpath]").forEach((folder) => {
           const folderLanguage = folder.dataset.folderpath.split("/")[0]
           if (folderLanguage !== "en" && folderLanguage !== "ko") return
 
           const row = folder.closest("li")
           if (!row) return
-          row.hidden = folderLanguage !== language
+          row.hidden = true
+
           if (folderLanguage === language) {
-            const folderTitle = folder.querySelector(".folder-title")
-            if (folderTitle && folderTitle.textContent !== homeTitle) folderTitle.textContent = homeTitle
-            folder.nextElementSibling?.classList.add("open")
+            const childList = folder.nextElementSibling?.querySelector(".tree-item-children")
+            if (childList) {
+              Array.from(childList.children).forEach((child) => {
+                if (!child.classList.contains("overflow-end")) {
+                  const end = tree.querySelector(":scope > li.overflow-end")
+                  tree.insertBefore(child, end)
+                }
+              })
+            }
           }
         })
 
         tree.querySelectorAll("a.nav-file-title").forEach((link) => {
+          if (link.dataset.languageHome === "true") {
+            const row = link.closest("li")
+            if (row) row.hidden = false
+            return
+          }
+
           const path = new URL(link.href, window.location.href).pathname.replace(/\/$/, "")
           const normalized = path.replace(/\/index(?:\.html)?$/, "").replace(/\.html$/, "")
           const pathLanguage = normalized.startsWith(`${basePath}/en/`)
