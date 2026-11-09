@@ -26,15 +26,33 @@
 }
 
 // Keep the home photo visible around a light text panel for readable contrast.
-body[data-slug="en/index"] #quartz-root,
-body[data-slug="ko/index"] #quartz-root {
-  min-height: 100vh;
+body[data-slug="en/index"],
+body[data-slug="ko/index"] {
+  background: transparent !important;
+}
+
+body[data-slug="en/index"]::before,
+body[data-slug="ko/index"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgba(242, 247, 249, 0.16), rgba(242, 247, 249, 0.34)),
-    url("./static/atmospheric-sky-v2.png") !important;
+    linear-gradient(180deg, rgba(242, 247, 249, 0.08), rgba(242, 247, 249, 0.18)),
+    url("./static/atmospheric-sky-v2.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+body[data-slug="en/index"] #quartz-root,
+body[data-slug="ko/index"] #quartz-root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: transparent !important;
 }
 
 body[data-slug="en/index"] #quartz-body,
@@ -53,14 +71,14 @@ body[data-slug="ko/index"] .center > article {
   padding: 1.5rem;
   border: 1px solid rgba(52, 118, 136, 0.16);
   border-radius: 1.1rem;
-  background: rgba(248, 251, 252, 0.62) !important;
+  background: rgba(248, 251, 252, 0.55) !important;
   box-shadow: 0 16px 48px rgba(36, 58, 68, 0.14);
   backdrop-filter: blur(5px);
 }
 
 @media (max-width: 800px) {
-  body[data-slug="en/index"] #quartz-root,
-  body[data-slug="ko/index"] #quartz-root {
+  body[data-slug="en/index"]::before,
+  body[data-slug="ko/index"]::before {
     background-attachment: scroll;
   }
 

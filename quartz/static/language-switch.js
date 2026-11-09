@@ -10,9 +10,9 @@
     const pageTitle = document.querySelector(".left.sidebar .page-title a")
 
     if (pageTitle) {
-      pageTitle.textContent = language === "en" ? "Home" : "홈"
+      pageTitle.textContent = "Jaeeon Kim"
       pageTitle.href = `${basePath}/${language}/index.html`
-      pageTitle.setAttribute("aria-label", language === "en" ? "Home" : "홈")
+      pageTitle.setAttribute("aria-label", "Jaeeon Kim")
     }
 
     const explorer = document.querySelector(".left.sidebar .explorer")
