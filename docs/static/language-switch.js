@@ -19,7 +19,8 @@
     if (explorer) {
       const explorerTitle = language === "en" ? "Pages" : "메뉴"
       const homeTitle = language === "en" ? "Home" : "홈"
-      explorer.querySelector(".title-button h2")?.replaceChildren(explorerTitle)
+      const heading = explorer.querySelector(".title-button h2")
+      if (heading && heading.textContent !== explorerTitle) heading.textContent = explorerTitle
       explorer.querySelector(".mobile-explorer")?.setAttribute("aria-label", explorerTitle)
 
       const filterExplorer = () => {
@@ -34,7 +35,8 @@
           if (!row) return
           row.hidden = folderLanguage !== language
           if (folderLanguage === language) {
-            folder.querySelector(".folder-title")?.replaceChildren(homeTitle)
+            const folderTitle = folder.querySelector(".folder-title")
+            if (folderTitle && folderTitle.textContent !== homeTitle) folderTitle.textContent = homeTitle
             folder.nextElementSibling?.classList.add("open")
           }
         })
