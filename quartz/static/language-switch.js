@@ -18,6 +18,7 @@
     const explorer = document.querySelector(".left.sidebar .explorer")
     if (explorer) {
       const explorerTitle = language === "en" ? "Pages" : "메뉴"
+      const homeTitle = language === "en" ? "Home" : "홈"
       explorer.querySelector(".title-button h2")?.replaceChildren(explorerTitle)
       explorer.querySelector(".mobile-explorer")?.setAttribute("aria-label", explorerTitle)
 
@@ -26,25 +27,29 @@
         if (!tree) return
 
         tree.querySelectorAll(".folder-container[data-folderpath]").forEach((folder) => {
-          const folderPath = folder.dataset.folderpath
-          if (folderPath !== "en" && folderPath !== "ko") return
+          const folderLanguage = folder.dataset.folderpath.split("/")[0]
+          if (folderLanguage !== "en" && folderLanguage !== "ko") return
 
           const row = folder.closest("li")
           if (!row) return
-          row.hidden = folderPath !== language
-          if (folderPath === language) {
-            folder.querySelector(".folder-title")?.replaceChildren(explorerTitle)
+          row.hidden = folderLanguage !== language
+          if (folderLanguage === language) {
+            folder.querySelector(".folder-title")?.replaceChildren(homeTitle)
             folder.nextElementSibling?.classList.add("open")
           }
         })
 
         tree.querySelectorAll("a.nav-file-title").forEach((link) => {
           const path = new URL(link.href, window.location.href).pathname.replace(/\/$/, "")
-          const localeHome = new RegExp(`/${language}(?:/index)?(?:\\.html)?$`)
-          if (localeHome.test(path)) {
-            const row = link.closest("li")
-            if (row) row.hidden = true
-          }
+          const normalized = path.replace(/\/index(?:\.html)?$/, "").replace(/\.html$/, "")
+          const pathLanguage = normalized.startsWith(`${basePath}/en/`)
+            ? "en"
+            : normalized.startsWith(`${basePath}/ko/`)
+              ? "ko"
+              : null
+          const localeHome = normalized === `${basePath}/${language}`
+          const row = link.closest("li")
+          if (row) row.hidden = (pathLanguage !== null && pathLanguage !== language) || localeHome
         })
       }
 
