@@ -7,18 +7,19 @@
     const [, language, page] = match
     const targetLanguage = language === "en" ? "ko" : "en"
     const basePath = (document.body.dataset.basepath ?? "").replace(/\/$/, "")
+    const homeTitle = language === "en" ? "Home" : "홈"
     const pageTitle = document.querySelector(".left.sidebar .page-title a")
 
     if (pageTitle) {
       pageTitle.textContent = "Jaeeon Kim"
-      pageTitle.href = `${basePath}/${language}/index.html`
+      pageTitle.href = `${basePath}/${language}/`
       pageTitle.setAttribute("aria-label", "Jaeeon Kim")
     }
 
     const explorer = document.querySelector(".left.sidebar .explorer")
     if (explorer) {
+      if (explorer.dataset.languageReady !== "true") explorer.dataset.languageReady = "false"
       const explorerTitle = language === "en" ? "Pages" : "메뉴"
-      const homeTitle = language === "en" ? "Home" : "홈"
       const heading = explorer.querySelector(".title-button h2")
       if (heading && heading.textContent !== explorerTitle) heading.textContent = explorerTitle
       explorer.querySelector(".mobile-explorer")?.setAttribute("aria-label", explorerTitle)
@@ -38,7 +39,7 @@
 
         const homeLink = homeRow.querySelector("[data-language-home='true']")
         if (homeLink) {
-          homeLink.href = `${basePath}/${language}/index.html`
+          homeLink.href = `${basePath}/${language}/`
           if (homeLink.textContent !== homeTitle) homeLink.textContent = homeTitle
           homeLink.lang = language
           homeLink.setAttribute("aria-label", homeTitle)
@@ -88,6 +89,8 @@
           const row = link.closest("li")
           if (row) row.hidden = (pathLanguage !== null && pathLanguage !== language) || localeHome
         })
+
+        explorer.dataset.languageReady = "true"
       }
 
       if (explorer.dataset.languageWaitTimer) {
@@ -109,6 +112,26 @@
       }
 
       filterWhenReady()
+    }
+
+    const breadcrumb = document.querySelector(".center .breadcrumb-container")
+    if (breadcrumb) {
+      const crumbs = [...breadcrumb.querySelectorAll(".breadcrumb-element")]
+      const homeCrumbLink = crumbs[0]?.querySelector("a")
+      if (homeCrumbLink) {
+        homeCrumbLink.href = `${basePath}/${language}/`
+        if (homeCrumbLink.textContent !== homeTitle) homeCrumbLink.textContent = homeTitle
+        homeCrumbLink.setAttribute("aria-label", homeTitle)
+      }
+
+      crumbs.slice(1, -1).forEach((crumb) => {
+        const link = crumb.querySelector("a")
+        if (!link) return
+        const path = new URL(link.href, window.location.href).pathname.replace(/\/$/, "")
+        if (path === `${basePath}/${language}` || path === `${basePath}/${language}/index.html`) {
+          crumb.remove()
+        }
+      })
     }
 
     const tocTitle = document.querySelector(".right.sidebar .toc .toc-header h3")
