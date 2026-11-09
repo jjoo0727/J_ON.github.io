@@ -29,7 +29,7 @@ configuration:
         secondary: "#347688"
         tertiary: "#b9844d"
         highlight: rgba(52, 118, 136, 0.16)
-        textHighlight: "#d6ad6d88"
+        textHighlight: "#78aeb722"
       darkMode:
         light: "#172127"
         lightgray: "#303e46"
@@ -39,7 +39,7 @@ configuration:
         secondary: "#82c1ce"
         tertiary: "#dfad73"
         highlight: rgba(130, 193, 206, 0.18)
-        textHighlight: "#d6ad6d88"
+        textHighlight: "#78aeb733"
   links:
     markdownLinkResolution: shortest
   contentIndex:

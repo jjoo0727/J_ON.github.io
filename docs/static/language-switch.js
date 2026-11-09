@@ -62,6 +62,9 @@
       }
     }
 
+    const tocTitle = document.querySelector(".right.sidebar .toc .toc-header h3")
+    if (tocTitle) tocTitle.textContent = language === "en" ? "On This Page" : "이 페이지에서"
+
     document.querySelector("[data-language-switch]")?.remove()
 
     const toolbar = [...document.querySelectorAll(".left.sidebar .flex-component")].find((element) =>
