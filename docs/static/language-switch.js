@@ -44,8 +44,10 @@
           homeLink.setAttribute("aria-label", homeTitle)
           homeLink.setAttribute("aria-current", page === "index" ? "page" : "false")
         }
-        const rootEnd = tree.querySelector(":scope > li.overflow-end")
-        if (rootEnd) tree.insertBefore(homeRow, rootEnd)
+        if (homeRow.parentElement !== tree) {
+          const firstItem = tree.querySelector(":scope > li:not(.overflow-end)")
+          tree.insertBefore(homeRow, firstItem ?? tree.querySelector(":scope > li.overflow-end"))
+        }
 
         tree.querySelectorAll(".folder-container[data-folderpath]").forEach((folder) => {
           const folderLanguage = folder.dataset.folderpath.split("/")[0]
