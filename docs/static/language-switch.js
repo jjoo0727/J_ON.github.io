@@ -90,11 +90,25 @@
         })
       }
 
-      filterExplorer()
-      if (explorer.dataset.languageFilter !== "true") {
-        explorer.dataset.languageFilter = "true"
-        new MutationObserver(filterExplorer).observe(explorer, { childList: true, subtree: true })
+      if (explorer.dataset.languageWaitTimer) {
+        window.clearTimeout(Number(explorer.dataset.languageWaitTimer))
       }
+
+      let attempts = 0
+      const filterWhenReady = () => {
+        const tree = explorer.querySelector(".explorer-ul")
+        const foldersReady = tree?.querySelector(".folder-container[data-folderpath]")
+        if (foldersReady || attempts >= 40) {
+          delete explorer.dataset.languageWaitTimer
+          filterExplorer()
+          return
+        }
+
+        attempts += 1
+        explorer.dataset.languageWaitTimer = String(window.setTimeout(filterWhenReady, 50))
+      }
+
+      filterWhenReady()
     }
 
     const tocTitle = document.querySelector(".right.sidebar .toc .toc-header h3")
